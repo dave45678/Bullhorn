@@ -6,9 +6,9 @@
 		<class>model.Bulluser</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-			<property name="javax.persistence.jdbc.user" value="system"/>
-			<property name="javax.persistence.jdbc.password" value="password"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+			<property name="javax.persistence.jdbc.user" value="ora1"/>
+			<property name="javax.persistence.jdbc.password" value="ora1"/>
 			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
 		</properties>
 	</persistence-unit>

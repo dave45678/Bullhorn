@@ -1,0 +1,74 @@
+--------------------------------------------------------
+--  File created - Wednesday-March-30-2016   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table BULLHORN
+--------------------------------------------------------
+
+  CREATE TABLE "ORA1"."BULLHORN" 
+   (	"POSTID" NUMBER, 
+	"PDATE" DATE, 
+	"POST" VARCHAR2(140 BYTE), 
+	"USERID" NUMBER
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table BULLUSER
+--------------------------------------------------------
+
+  CREATE TABLE "ORA1"."BULLUSER" 
+   (	"USERID" NUMBER, 
+	"JOINDATE" DATE, 
+	"MOTTO" VARCHAR2(50 BYTE), 
+	"USERNAME" VARCHAR2(50 BYTE), 
+	"USERPASS" VARCHAR2(20 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+REM INSERTING into ORA1.BULLHORN
+SET DEFINE OFF;
+REM INSERTING into ORA1.BULLUSER
+SET DEFINE OFF;
+Insert into ORA1.BULLUSER (USERID,JOINDATE,MOTTO,USERNAME,USERPASS) values (1,null,'my cat''s breath smells like catfood','dave','blue');
+--------------------------------------------------------
+--  DDL for Index BULLHORN_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ORA1"."BULLHORN_PK" ON "ORA1"."BULLHORN" ("POSTID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index BULLUSER_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "ORA1"."BULLUSER_PK" ON "ORA1"."BULLUSER" ("USERID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  Constraints for Table BULLHORN
+--------------------------------------------------------
+
+  ALTER TABLE "ORA1"."BULLHORN" ADD CONSTRAINT "BULLHORN_PK" PRIMARY KEY ("POSTID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "ORA1"."BULLHORN" MODIFY ("POSTID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Constraints for Table BULLUSER
+--------------------------------------------------------
+
+  ALTER TABLE "ORA1"."BULLUSER" ADD CONSTRAINT "BULLUSER_PK" PRIMARY KEY ("USERID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS"  ENABLE;
+  ALTER TABLE "ORA1"."BULLUSER" MODIFY ("USERID" NOT NULL ENABLE);

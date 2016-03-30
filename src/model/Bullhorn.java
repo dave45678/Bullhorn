@@ -1,22 +1,23 @@
 package model;
 
 import java.io.Serializable;
-
 import javax.persistence.*;
-
 import java.math.BigDecimal;
 import java.util.Date;
 
 
-
+/**
+ * The persistent class for the BULLHORN database table.
+ * 
+ */
 @Entity
-@Table(name="BULLHORN", schema="TESTDB")
 @NamedQuery(name="Bullhorn.findAll", query="SELECT b FROM Bullhorn b")
 public class Bullhorn implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private long postsid;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private long postid;
 
 	@Temporal(TemporalType.DATE)
 	private Date pdate;
@@ -28,12 +29,12 @@ public class Bullhorn implements Serializable {
 	public Bullhorn() {
 	}
 
-	public long getPostsid() {
-		return this.postsid;
+	public long getPostid() {
+		return this.postid;
 	}
 
-	public void setPostsid(long postsid) {
-		this.postsid = postsid;
+	public void setPostid(long postid) {
+		this.postid = postid;
 	}
 
 	public Date getPdate() {
@@ -56,8 +57,8 @@ public class Bullhorn implements Serializable {
 		return this.userid;
 	}
 
-	public void setUserid(long userid) {
-		this.userid = userid;
+	public void setUserid(long userid2) {
+		this.userid = userid2;
 	}
 
 }

@@ -15,7 +15,7 @@ public class grabBullhorn {
 		try {
 			Bullhorn post2 = new Bullhorn();
 			post2.setPost("Hello World!");
-			post2.setPostsid(1);
+			post2.setPostid(1);
 			post2.setPdate(date);
 			DBBullhorn.insert(post2);
 		} catch (Exception e){
