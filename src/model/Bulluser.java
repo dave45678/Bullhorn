@@ -7,7 +7,7 @@ import java.util.Date;
 
 
 @Entity
-@Table(name="BULLUSER", schema="TESTDB")
+@Table(name="BULLUSER")
 @NamedQuery(name="Bulluser.findAll", query="SELECT b FROM Bulluser b")
 public class Bulluser implements Serializable {
 	private static final long serialVersionUID = 1L;

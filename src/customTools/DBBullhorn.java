@@ -17,6 +17,8 @@ public class DBBullhorn {
 		trans.begin();
 		try {
 			em.persist(bullhorn);
+			em.flush();
+			em.refresh(bullhorn);
 			trans.commit();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -32,6 +34,8 @@ public class DBBullhorn {
 		trans.begin();
 		try {
 			em.merge(bullhorn);
+			em.flush();
+			em.refresh(bullhorn);
 			trans.commit();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -47,6 +51,8 @@ public class DBBullhorn {
 		trans.begin();
 		try {
 			em.remove(em.merge(bullhorn));
+			em.flush();
+			em.refresh(bullhorn);
 			trans.commit();
 		} catch (Exception e) {
 			System.out.println(e);

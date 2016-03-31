@@ -1,12 +1,12 @@
 --------------------------------------------------------
---  File created - Wednesday-March-30-2016   
+--  File created - Thursday-March-31-2016   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Table BULLHORN
 --------------------------------------------------------
 
   CREATE TABLE "ORA1"."BULLHORN" 
-   (	"POSTID" NUMBER, 
+   (	"POSTID" NUMBER GENERATED ALWAYS AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE , 
 	"PDATE" DATE, 
 	"POST" VARCHAR2(140 BYTE), 
 	"USERID" NUMBER
@@ -37,18 +37,11 @@ REM INSERTING into ORA1.BULLUSER
 SET DEFINE OFF;
 Insert into ORA1.BULLUSER (USERID,JOINDATE,MOTTO,USERNAME,USERPASS) values (1,null,'my cat''s breath smells like catfood','dave','blue');
 --------------------------------------------------------
---  DDL for Index BULLHORN_PK
---------------------------------------------------------
-
-  CREATE UNIQUE INDEX "ORA1"."BULLHORN_PK" ON "ORA1"."BULLHORN" ("POSTID") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 
-  TABLESPACE "USERS" ;
---------------------------------------------------------
 --  DDL for Index BULLUSER_PK
 --------------------------------------------------------
 
   CREATE UNIQUE INDEX "ORA1"."BULLUSER_PK" ON "ORA1"."BULLUSER" ("USERID") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
@@ -57,16 +50,13 @@ Insert into ORA1.BULLUSER (USERID,JOINDATE,MOTTO,USERNAME,USERPASS) values (1,nu
 --  Constraints for Table BULLHORN
 --------------------------------------------------------
 
-  ALTER TABLE "ORA1"."BULLHORN" ADD CONSTRAINT "BULLHORN_PK" PRIMARY KEY ("POSTID")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
-  TABLESPACE "USERS"  ENABLE;
   ALTER TABLE "ORA1"."BULLHORN" MODIFY ("POSTID" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table BULLUSER
 --------------------------------------------------------
 
   ALTER TABLE "ORA1"."BULLUSER" ADD CONSTRAINT "BULLUSER_PK" PRIMARY KEY ("USERID")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)

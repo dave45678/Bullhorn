@@ -33,7 +33,7 @@ public class Account extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		Date date = new Date();
+		Date date = new Date();//returns today's date
 		String Username = request.getParameter("username");
 		String Password = request.getParameter("userpass");
 		String Motto = request.getParameter("motto");
