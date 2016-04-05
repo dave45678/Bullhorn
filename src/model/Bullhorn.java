@@ -15,8 +15,8 @@ import java.util.Date;
 public class Bullhorn implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id
 	private long postid;
 
 	@Temporal(TemporalType.DATE)

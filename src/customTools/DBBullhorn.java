@@ -28,6 +28,22 @@ public class DBBullhorn {
 		}
 	}
 
+	
+	public static <T> void addToDB(Object T) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		EntityTransaction trans = em.getTransaction();
+		try {
+			trans.begin();
+			em.merge(T);
+			trans.commit();
+		} catch (Exception e) {
+			trans.rollback();
+		} finally {
+			em.close();
+		}
+	}
+
+		
 	public static void update(Bullhorn bullhorn) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		EntityTransaction trans = em.getTransaction();

@@ -21,17 +21,20 @@ public class BullhornTestsDJW {
 		Bullhorn submit = new Bullhorn();
 		Date today = new Date();
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+			
 		try{
-			submit.setPostid(22);
+			//submit.setPostid();
 			submit.setPdate(today);
-			submit.setPost("this is a test3");
+			submit.setPost("this is a test 4");
 			submit.setUserid(1);
 			DBBullhorn.insert(submit);
-		} catch (Exception e){
-			e.printStackTrace();;
+		} catch (Exception e){ 
+			e.printStackTrace();
 		} finally {
 			em.close();
 		}
+		
+	
 		System.out.println(submit.getPostid());
 	}
 
